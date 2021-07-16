@@ -1,0 +1,16 @@
+<nav class="main-nav">
+    <ul>
+        {% for page in site.pages %}
+        {% if page.url != '/feed.xml' and page.url != '/' and page.url != '/404.html' and  page.url != '/assets/main.css'  %}
+        <li>
+            <a href="{{ page.url }}">
+                <span class="title">{{ page.title }}</span>
+                <span class="date">{{ page.date | date_to_string }}</span>
+            </a>
+            
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    
+</nav>

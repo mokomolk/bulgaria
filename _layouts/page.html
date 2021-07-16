@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ base.url }}/css/style.css">
+</head>
+
+<body class="{{ page.body_class }} {{ page.title | slugify }}">
+
+  <header class="site-header banner" >
+    
+    <div class="inner">
+
+      <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+      {% include navigation.html %}
+      
+
+    </div>
+  </header>
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    &copy; Moko
+  </footer>
+</body>
+
+</html>
