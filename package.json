@@ -1,0 +1,35 @@
+{
+  "name": "bg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mokomolk/bulgaria.git"
+  },
+  "keywords": [
+    "key"
+  ],
+  "author": "moko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mokomolk/bulgaria/issues"
+  },
+  "homepage": "https://github.com/mokomolk/bulgaria#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.4",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-exec": "^5.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-size": "^4.0.1",
+    "node-sass": "^6.0.1"
+  }
+}

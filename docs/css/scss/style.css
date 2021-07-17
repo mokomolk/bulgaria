@@ -1,0 +1,16 @@
+body {
+  background: grey;
+  color: purple; }
+
+p {
+  color: grey;
+  background: khaki; }
+
+header {
+  border-bottom: 2px solid grey; }
+
+footer {
+  border-top: 2px solid grey; }
+
+main {
+  margin: 20px, 0px, 20px, 0px; }
