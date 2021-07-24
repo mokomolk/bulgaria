@@ -1,17 +1,31 @@
+@import "reset.scss";
+@import "typography.scss";
+
+@import "mixins.scss";
+
 body {
-    background: grey;
-    color: purple;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  background: pink;
+
+  & header {
+    flex-basis: 20%;
+    position: relative;
+    background: #ccc;
+    .inner {
+      position: fixed;
+    }
+  }
+  & main {
+    flex-basis: 80%;
+    background: purple;
+  }
+  & footer {
+    flex-basis: 100%;
+    background: darkblue;
+  }
 }
 p {
-    color: grey;
-    background: khaki;
-}
-header {
-    border-bottom: 2px solid grey;
-}
-footer {
-    border-top: 2px solid grey;
-}
-main {
-    margin: 20px, 0px, 20px, 0px;
+  color: grey;
 }

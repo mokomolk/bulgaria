@@ -1,7 +1,8 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require("gulp-sass")(require("node-sass"));
 const cp = require("child_process");
-const  autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 const browserSync = require('browser-sync').create();
 
 // File paths
@@ -9,7 +10,7 @@ const browserSync = require('browser-sync').create();
 const files = {
     scssPath: '_asset/**/*.scss',
     cssPath: './docs/css/',
-    jsPath: 'docs/**/*.js',
+    jsPath: './docs/**/*.js',
    
 }
 
@@ -19,10 +20,9 @@ function scssTask(){
     return src(files.scssPath)
         
         .pipe(sass().on('error', sass.logError))
-        
-       
+		.pipe(postcss([ autoprefixer() ]))
         .pipe(dest("./docs/css/")) // put final CSS in dist folder
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(browserSync.reload({stream:true}));
 }
 
 // JS task: concatenates and uglifies JS files to script.js
@@ -32,7 +32,7 @@ function jsTask(){
       //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
   ])
       .pipe(uglify())
-      .pipe(dest('docs/**/*.js'))
+      .pipe(dest('./docs/**/*.js'))
       .pipe(browserSync.reload({stream:true}))
 }
 
@@ -54,7 +54,11 @@ function watchTask(){
 
     watch([files.scssPath], parallel(scssTask, browserSyncReload));
     watch([files.jsPath], parallel(jsTask, browserSyncReload));
-    watch(['_includes/**', '_layouts/**/*', 'pages/**'], series(jekyll, browserSyncReload));
+    watch(["./*.html",
+    "./*.yml",
+    "./_includes/*.html",
+    "./_layouts/*.html",
+    "./_posts/**/*.*"], series(jekyll, browserSyncReload));
    
 
 }
